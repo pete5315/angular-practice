@@ -12,7 +12,7 @@ export class TestComponentComponent {
       console.log($event.target.value);
     }
   }
-  userName:string = "Peter";
+  userName:string = "";
   list = [1,2,3,4,5];
 
 }

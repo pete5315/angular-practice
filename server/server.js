@@ -10,12 +10,15 @@ const calculatorRouter = require("./routes/calculator.router");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Passport Session Configuration //
-app.use(sessionMiddleware);
-
-// start up passport sessions
-app.use(passport.initialize());
-app.use(passport.session());
+// handling CORS
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "http://localhost:50305");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
 
 /* Routes */
 app.use("/api/calculator", calculatorRouter);
@@ -24,7 +27,7 @@ app.use("/api/calculator", calculatorRouter);
 app.use(express.static("build"));
 
 // App Set //
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 /** Listen * */
 app.listen(PORT, () => {
