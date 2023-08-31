@@ -1,0 +1,9 @@
+<h2>Event Binding</h2> 
+<button (click)="showData($event)">Click here</button>
+<input type="text" [value]="userName">  <!-- [value] references the .ts file -->
+<h2>ngFor directive</h2> 
+<ul> 
+   <li *ngFor="let l of list">
+      {{l}} 
+   </li>
+</ul>
