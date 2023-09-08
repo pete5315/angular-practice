@@ -2,9 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } 
     from '@angular/common/http';
-    
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CalculatorComponent } from './calculator/calculator.component';
 import { CalculatorTitleComponent } from './calculator-title/calculator-title.component';
 import { CalculatorInputSignComponent } from './calculator-input-sign/calculator-input-sign.component';
 import { CalculatorInputSubmitComponent } from './calculator-input-submit/calculator-input-submit.component';
@@ -17,6 +18,7 @@ import { CalculatorNumbersComponent } from './calculator-numbers/calculator-numb
 @NgModule({
   declarations: [
     AppComponent,
+    CalculatorComponent,
     CalculatorTitleComponent,
     CalculatorInputSignComponent,
     CalculatorInputSubmitComponent,
@@ -29,9 +31,13 @@ import { CalculatorNumbersComponent } from './calculator-numbers/calculator-numb
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+// imports: [
+
+// ],
