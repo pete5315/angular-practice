@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } 
     from '@angular/common/http';
+import { CommonModule } from '@angular/common'; // Import CommonModule
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,6 +33,7 @@ import { CalculatorNumbersComponent } from './calculator-numbers/calculator-numb
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    CommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,8 +3,8 @@
 <input type="text" [value]="userName" />
 <!-- [value] references the .ts file -->
 <h2>ngFor directive</h2>
-<ul>
-  <li *ngFor="let l of list">
+<ul *ngFor="let l of list">
+  <li >
     {{ l }}
   </li>
 </ul>
