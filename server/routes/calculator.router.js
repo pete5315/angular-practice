@@ -1,14 +1,12 @@
 const express = require("express");
 const router = express.Router();
-let data = {
-  input1: "",
-  input2: "",
-  sign: "+",
-}
-
-
+let data = [];
 
 router.get("/", (req, res) => {
+  res.json(data);
+});
+
+router.get("/history", (req, res) => {
   res.json(data);
 });
 

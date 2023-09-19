@@ -1,6 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { calculatorService } from '../calculator.service';
 import { calculatorInputs } from '../calculatorInputs';
+import { calculatorHistory } from '../calculatorHistory';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -11,10 +12,11 @@ import { HttpClient } from '@angular/common/http';
 export class CalculatorComponent implements OnInit {
 
   calculatorInputs: calculatorInputs[] = [];
+  calculatorHistory: calculatorHistory[] = [];
   calculatorService: calculatorService = inject(calculatorService);
 
   constructor(private http: HttpClient) {
-    this.calculatorInputs = this.calculatorService.getAllCalculatorInputs();
+    // this.calculatorInputs = this.calculatorService.getAllCalculatorInputs();
   }
 
 
@@ -23,8 +25,8 @@ export class CalculatorComponent implements OnInit {
   }
 
   getHistory(): void {
-    this.http.get<any[]>('http://localhost:5001/history').subscribe(calculatorInputs => {
-      this.calculatorInputs = calculatorInputs;
+    this.http.get<any[]>('http://localhost:5001/api/calculator/history').subscribe(calculatorHistory => {
+      this.calculatorHistory = calculatorHistory;
     });
   }
 

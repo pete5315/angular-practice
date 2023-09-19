@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { calculatorInputs } from '../calculatorInputs';
+import { calculatorService } from '../calculator.service';
 
 @Component({
   selector: 'app-calculator-input-sign',
@@ -7,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class CalculatorInputSignComponent {
 
+  constructor(private calculatorService: calculatorService) {}
+
+  saveInputSign(key: keyof calculatorInputs, value: string) {
+    this.calculatorService.updateInputField(key, value)
+  }
 }

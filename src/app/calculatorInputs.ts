@@ -1,5 +1,5 @@
 export interface calculatorInputs {
-  input1: number;
+  input1: string;
   operation: string;
-  input2: number;
+  input2: string;
 }

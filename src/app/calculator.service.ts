@@ -1,26 +1,40 @@
 import { Injectable } from '@angular/core';
-import {calculatorInputs} from './calculatorInputs'
+import { calculatorInputs } from './calculatorInputs'
+import { calculatorHistory } from './calculatorHistory';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class calculatorService {
 
   constructor() { }
 
-  calculatorInputsList: calculatorInputs[] = [
+  calculatorInputsList: calculatorInputs = 
     {
-      input1: 0,
-      operation: "+",
-      input2: 0,
+      input1: "",
+      operation: "",
+      input2: "",
+    }
+  
+
+  calculatorHistoryList: calculatorHistory[] = [
+    {
+      history: []
     }
   ]
-  getAllCalculatorInputs(): calculatorInputs[] {
-    return this.calculatorInputsList;
+
+  updateInputField(key: keyof calculatorInputs, newValue: string): void {
+    this.calculatorInputsList[key] = newValue;
+    console.log(this.calculatorInputsList);
   }
 
-  submitApplication(input1: number, operation: string, input2: string) {
-    console.log(`Calculation request received: input1: ${input1}, operation: ${operation}, input2: ${input2}.`);
+  // getAllCalculatorInputs(): calculatorInputs[] {
+  //   return this.calculatorInputsList;
+  // }
+
+  submitApplication(input1: number, operation: string, input2: string, result: string) {
+    console.log(`Calculation request received: input1: ${input1}, operation: ${operation}, input2: ${input2}. result: ${result}`);
   }
   
 }

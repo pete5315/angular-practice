@@ -3,6 +3,10 @@
 
 <app-test-component />
 
-<p *ngIf="inputsAndSign">
-  {{ inputsAndSign.sign }}
-</p>
+<!-- <p *ngIf="inputsAndSign"> -->
+  <ul *ngFor="let l of inputsAndSign">
+    <li >
+      {{ l.input1 }} {{ l.sign }} {{ l.input2 }} = {{ l.result }}
+    </li>
+  </ul>
+<!-- </p> -->
