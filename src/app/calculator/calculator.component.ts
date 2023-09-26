@@ -67,7 +67,6 @@ export class CalculatorComponent implements OnInit {
   }
 
   updateCalculatorInputs(newValue: NewValue) {
-    console.log("HIIII", newValue, this)
     // Use this.childId to determine which input property to update
     if (newValue.outputId === "input1") {
       this.calculatorInputs.input1 = newValue.newValue;
