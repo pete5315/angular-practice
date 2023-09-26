@@ -2,6 +2,12 @@ import { Injectable } from '@angular/core';
 import { calculatorInputs } from './calculatorInputs'
 import { calculatorHistory } from './calculatorHistory';
 
+interface CalculatorInputs {
+  input1: string;
+  operation: string;
+  input2: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -10,7 +16,7 @@ export class calculatorService {
 
   constructor() { }
 
-  calculatorInputsList: calculatorInputs = 
+  calculatorInputsList: CalculatorInputs = 
     {
       input1: "",
       operation: "",

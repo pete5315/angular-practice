@@ -4,16 +4,29 @@ import { calculatorInputs } from '../calculatorInputs';
 import { calculatorHistory } from '../calculatorHistory';
 import { HttpClient } from '@angular/common/http';
 
+interface CalculatorInputs {
+  input1: string;
+  operation: string;
+  input2: string;
+}
+
+interface NewValue {
+  newValue: string;
+  outputId: keyof CalculatorInputs;
+}
+
 @Component({
   selector: 'app-calculator',
   templateUrl: './calculator.component.html',
   styleUrls: ['./calculator.component.css']
 })
+
 export class CalculatorComponent implements OnInit {
 
-  calculatorInputs: calculatorInputs[] = [];
+  calculatorInputs: CalculatorInputs = {input1: "", input2: "", operation: ""}
   calculatorHistory: calculatorHistory[] = [];
   calculatorService: calculatorService = inject(calculatorService);
+  childId: string = "";
 
   constructor(private http: HttpClient) {
     // this.calculatorInputs = this.calculatorService.getAllCalculatorInputs();
@@ -52,6 +65,17 @@ export class CalculatorComponent implements OnInit {
         this.getHistory();
     });
   }
+
+  updateCalculatorInputs(newValue: NewValue) {
+    console.log("HIIII", newValue, this)
+    // Use this.childId to determine which input property to update
+    if (newValue.outputId === "input1") {
+      this.calculatorInputs.input1 = newValue.newValue;
+    } else if (newValue.outputId === "input2") {
+      this.calculatorInputs[newValue.outputId] = newValue.newValue;
+    }
+  }
+
 
 
 }
