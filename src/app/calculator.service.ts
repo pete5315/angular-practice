@@ -39,8 +39,8 @@ export class calculatorService {
   //   return this.calculatorInputsList;
   // }
 
-  submitApplication(input1: number, operation: string, input2: string, result: string) {
-    console.log(`Calculation request received: input1: ${input1}, operation: ${operation}, input2: ${input2}. result: ${result}`);
+  submitApplication(input1: string, operation: string, input2: string) {
+    console.log(`Calculation request received: input1: ${input1}, operation: ${operation}, input2: ${input2}`);
   }
   
 }

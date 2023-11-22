@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-let data = [];
+let data = ["1", "+", "5", "6"];
 
 router.get("/", (req, res) => {
   res.json(data);
